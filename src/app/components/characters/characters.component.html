@@ -1,0 +1,29 @@
+<div class="container">
+<form [formGroup] = "usuario">
+
+  <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" placeholder="Nombre" formControlName = "nombre" class="form-control" [ngClass] = "{'is-invalid': submitted && f.nombre.errors}">
+
+      <div *ngIf= "submitted && f.nombre.errors" class="invalid-feedback">
+        <div *ngIf = "f.nombre.errors.required"> El nombre es obligatorio</div>
+      </div>
+
+
+      <label for="">Email</label>
+      <input type="text" placeholder="email" formControlName = "email" class="form-control" [ngClass] = "{'is-invalid': submitted && f.email.errors}">
+
+
+      <div *ngIf= "submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf = "f.email.errors.required"> El correo es obligatorio</div>
+        <div *ngIf = "f.email.errors.email"> Falta la @ en el correo</div>
+      </div>
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="enviarDatos()">Enviar</button>
+  </div>
+</form>
+
+</div>
